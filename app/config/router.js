@@ -7,11 +7,11 @@ import SecondScreen from '../screens/SecondScreen';
 
 export const Drawer = DrawerNavigator(
   { //Router Config
-    First: {path:'/', screen: FirstScreen},
-    Second: {path:'/2nd', screen: SecondScreen}
+    Drink: {screen: FirstScreen},
+    Stats: {screen: SecondScreen}
   },
   { //Drawer Nav Config
-    initialRouteName: 'First',
+    initialRouteName: 'Drink',
     drawerPosition: 'left',
     drawerWidth: 250
   }

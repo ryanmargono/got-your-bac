@@ -1,12 +1,13 @@
 import React from 'react';
-import { Text, View, Button, Image } from 'react-native';
+import { Text, View, Image, StatusBar } from 'react-native';
+import { Button, Grid, Col, Row } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import AppHeader from '../components/AppHeader';
 
 export default class FirstScreen extends React.Component {
 	static navigationOptions = {
 		tabBarLabel: 'Screen 1',
-		// drawerIcon: () => { return (<Ionicons name="md-checkmark-circle" size={32} color="black" />) }
+		drawerIcon: () => { return (<Ionicons name="ios-beer" size={20} color="black" />) }
 	}
 	render() {
 		return (
@@ -17,12 +18,23 @@ export default class FirstScreen extends React.Component {
 					alignItems: 'center',
 				}
 			}>
-				<AppHeader/>
+				<StatusBar hidden={true} />
+				<AppHeader 
+					button={
+						<Ionicons
+							name="ios-menu" size={20} color="black"
+							onPress={() => this.props.navigation.navigate('DrawerOpen')}
+						/>
+				}/> 
+
 				<Text style={{ fontSize: 30, color: 'green' }}>Screen 1</Text>
-				<Button
-					onPress={() => this.props.navigation.navigate('DrawerOpen')}
-					title="Open DrawNavigator"
+				<Button 
+					raised 
+					iconRight
+					icon={{name:'add'}}
+					title='Add Drink'
 				/>
+				
 			</View>
 		)
 	}
