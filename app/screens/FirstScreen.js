@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, Button, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import AppHeader from '../components/AppHeader';
 
 export default class FirstScreen extends React.Component {
 	static navigationOptions = {
@@ -16,6 +17,7 @@ export default class FirstScreen extends React.Component {
 					alignItems: 'center',
 				}
 			}>
+				<AppHeader/>
 				<Text style={{ fontSize: 30, color: 'green' }}>Screen 1</Text>
 				<Button
 					onPress={() => this.props.navigation.navigate('DrawerOpen')}
