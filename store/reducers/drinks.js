@@ -9,7 +9,7 @@ const addDrink = () => ({
 	type: ADD_DRINK,
 })
 
-const fetchAllDrinks = () => dispatch => dispatch(getAllDrinks())
+export const fetchAllDrinks = () => dispatch => dispatch(getAllDrinks())
 export const addADrink = () => dispatch => dispatch(addDrink())
 
 const drinkReducer = (drinks = 0, action) => {
