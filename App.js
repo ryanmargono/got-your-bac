@@ -1,21 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { DrawerNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Hello World</Text>
-      </View>
-    );
-  }
-}
+import FirstScreen from './screens/FirstScreen';
+import SecondScreen from './screens/SecondScreen';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const Drawer = DrawerNavigator(
+  { //Router Config
+    First: {path:'/', screen: FirstScreen},
+    Second: {path:'/2nd', screen: SecondScreen}
   },
-});
+  { //Drawer Nav Config
+    initialRouteName: 'First',
+    drawerPosition: 'left',
+    drawerWidth: 250
+  }
+);
+
+export default Drawer;
