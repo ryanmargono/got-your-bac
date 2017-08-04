@@ -6,6 +6,7 @@ import configureStore from './store/configureStore'
 const store = configureStore()
 
 const App = () => {
+  console.disableYellowBox = true;
   return (
     <Provider store={store}>
       <Drawer/>
