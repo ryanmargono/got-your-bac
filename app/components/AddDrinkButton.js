@@ -32,4 +32,4 @@ const mapDispatchToProps = dispatch => ({
 	getAllDrinks: ()=> dispatch(fetchAllDrinks()),
 	addDrink: ()=> dispatch(addADrink())
 })
-export default AddDrinkButton
+export default connect(mapStateToProps,mapDispatchToProps)(AddDrinkButton)
