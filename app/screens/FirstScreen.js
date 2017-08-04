@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import AppHeader from '../components/AppHeader';
 
 import AddDrinkButton from '../components/AddDrinkButton'
-import AddWaterbutton from '../components/AddWaterButton'
+import AddWaterButton from '../components/AddWaterButton'
 
 export default class FirstScreen extends React.Component {
 	static navigationOptions = {
@@ -26,15 +26,12 @@ export default class FirstScreen extends React.Component {
 							/>
 						} />
 				</Row>
-				<Divider style={{ backgroundColor: 'blue' }} />
 				<Row size={8}>
 					<Text style={{ fontSize: 30, color: 'green' }}>Screen 1</Text>
 				</Row>
-				<Divider style={{ backgroundColor: 'blue' }} />
 				<Row size={1}>
 					<AddDrinkButton/>
 					<AddWaterButton/>
-				
 				</Row>
 			</Grid>
 		)

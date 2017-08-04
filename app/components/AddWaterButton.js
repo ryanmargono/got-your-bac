@@ -1,4 +1,5 @@
 import React from 'react'
+import { Col, Button } from 'react-native-elements'
 
 const AddWaterButton = () => {
 	return (
