@@ -12,7 +12,7 @@ const addDrink = () => ({
 export const fetchAllDrinks = () => dispatch => dispatch(getAllDrinks())
 export const addADrink = () => dispatch => dispatch(addDrink())
 
-const drinkReducer = (drinks = 0, action) => {
+const drinksReducer = (drinks = 0, action) => {
 	switch(action.type){
 		case GET_ALL_DRINKS:
 			return drinks;
@@ -24,6 +24,6 @@ const drinkReducer = (drinks = 0, action) => {
 	}
 }
 
-export default drinkReducer;
+export default drinksReducer;
 
 

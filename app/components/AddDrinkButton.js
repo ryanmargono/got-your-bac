@@ -1,6 +1,8 @@
 import { Col, Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { fetchAllDrinks, addADrink } from '../../store/reducers/drinks'
+import React from 'react'
+
 const AddDrinkButton = (props) => {
 	
 	const onButtonClick=()=>{
@@ -30,4 +32,4 @@ const mapDispatchToProps = dispatch => ({
 	getAllDrinks: ()=> dispatch(fetchAllDrinks()),
 	addDrink: ()=> dispatch(addADrink())
 })
-export default (mapStateToProps)(AddDrinkButton)
+export default AddDrinkButton

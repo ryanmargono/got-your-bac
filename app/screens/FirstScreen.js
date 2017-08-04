@@ -4,6 +4,8 @@ import { Button, Grid, Col, Row, Divider } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import AppHeader from '../components/AppHeader';
 
+import AddDrinkButton from '../components/AddDrinkButton'
+
 export default class FirstScreen extends React.Component {
 	static navigationOptions = {
 		tabBarLabel: 'Screen 1',
@@ -29,18 +31,7 @@ export default class FirstScreen extends React.Component {
 				</Row>
 				<Divider style={{ backgroundColor: 'blue' }} />
 				<Row size={1}>
-					<Col size={1}>
-						<Button
-							raised
-							iconRight
-							backgroundColor='brown'
-							icon={{ name: 'add' }}
-							title='Add Drink'
-							buttonStyle={[{ height:"100%"}]}
-							containerViewStyle={{marginLeft:0, marginRight:0}}
-						/>
-					</Col>
-					
+					<AddDrinkButton/>
 					<Col size={1}>
 						<Button
 							raised
