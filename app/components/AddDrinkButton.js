@@ -8,6 +8,7 @@ const AddDrinkButton = (props) => {
 	const onButtonClick=()=>{
 		console.log('firing')
 		props.addDrink()
+		console.log(props.drinks)
 	}
 	
 	return (
@@ -20,6 +21,7 @@ const AddDrinkButton = (props) => {
 				title='Add Drink'
 				buttonStyle={[{ height: "100%" }]}
 				containerViewStyle={{ marginLeft: 0, marginRight: 0 }}
+				onPress={onButtonClick}
 			/>
 		</Col>
 	)
