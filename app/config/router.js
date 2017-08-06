@@ -11,7 +11,7 @@ export const Drawer = DrawerNavigator(
     Drink: {screen: FirstScreen},
   },
   { //Drawer Nav Config
-    initialRouteName: 'Stats',
+    initialRouteName: 'Drink',
     drawerPosition: 'left',
     drawerWidth: 250
   }
