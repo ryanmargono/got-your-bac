@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 import AppHeader from '../components/AppHeader';
 import AddDrinkButton from '../components/AddDrinkButton'
-import AddWaterButton from '../components/AddWaterButton'
+import BACHeader from '../components/BACHeader'
 
 class FirstScreen extends React.Component {
 	static navigationOptions = {
@@ -16,16 +16,16 @@ class FirstScreen extends React.Component {
 
 
 	render() {
-		const drinksList =[]
+		const drinksList = []
 		let counter = this.props.drinks
-		while (counter>0){
+		while (counter > 0) {
 			drinksList.push('drink')
-			counter=counter-1
+			counter = counter - 1
 		}
 		return (
 			<Grid>
 				<StatusBar hidden={true} />
-			
+
 				<Row size={1}>
 					<AppHeader
 						button={
@@ -35,30 +35,37 @@ class FirstScreen extends React.Component {
 							/>
 						} />
 				</Row>
-				<Row size={2}>
+				<Row size={1}>
+					<BACHeader />
+				</Row>
+				<Row size={1}>
 					<Col size={1}>
-						<Text> Drink Counter: {this.props.drinks} </Text>
-					</Col>
-					<Col size={1}>
-						<Text> Cups of Water to Drink: {this.props.water} </Text>
+						<View style={
+							{
+								flex: 1,
+								justifyContent: 'center',
+								alignItems: 'center',
+							}
+						}>
+							<Text> Drink Counter: {this.props.drinks} </Text>
+						</View>
 					</Col>
 				</Row>
 				<Row size={6}>
 					<ScrollView>
-					<Text style={{ fontSize: 30, color: 'green' }}>
-						{
-							drinksList.map(drink=>{
-								return (
-									<Ionicons name="ios-beer" size={50} color="black" />
-								)
-							})
-						}
-					</Text>
+						<Text>
+							{
+								drinksList.map(drink => {
+									return (
+										<Ionicons name="ios-beer" size={50} color="black" />
+									)
+								})
+							}
+						</Text>
 					</ScrollView>
 				</Row>
 				<Row size={1}>
-					<AddDrinkButton/>
-					<AddWaterButton/>
+					<AddDrinkButton />
 				</Row>
 			</Grid>
 		)
@@ -67,10 +74,11 @@ class FirstScreen extends React.Component {
 
 const mapStateToProps = storeState => ({
 	drinks: storeState.drinks,
-	water: storeState.water
+	user: storeState.user
+
 })
+
 const mapDispatchToProps = dispatch => ({
-	getAllDrinks: ()=> dispatch(fetchAllDrinks()),
-	addDrink: ()=> dispatch(addADrink())
+	addDrink: () => dispatch(addADrink())
 })
-export default connect(mapStateToProps,mapDispatchToProps)(FirstScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(FirstScreen)
