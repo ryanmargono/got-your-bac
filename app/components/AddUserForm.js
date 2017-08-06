@@ -13,7 +13,6 @@ class AddUserForm extends React.Component {
 		this.state = {
 			name: "",
 			gender: "",
-			age: "",
 			weight: "",
 			emergencyContact: "",
 		}
@@ -24,14 +23,15 @@ class AddUserForm extends React.Component {
 		const userObj = {
 			name: this.state.name,
 			gender: this.state.gender,
-			age: this.state.age,
 			weight: this.state.weight,
 			emergencyContact: this.state.emergencyContact
 		}
 		this.props.addUser(userObj)
+		console.log('************************', this.props.user)
 	}
 
 	render() {
+
 		return (
 
 			<Grid>
@@ -56,12 +56,6 @@ class AddUserForm extends React.Component {
 						<FormInput
 							value={this.state.gender}
 							onChangeText={(gender) => this.setState({ gender })}
-						/>
-
-						<FormLabel>Age</FormLabel>
-						<FormInput
-							value={this.state.age}
-							onChangeText={(age) => this.setState({ age })}
 						/>
 
 						<FormLabel>Weight</FormLabel>

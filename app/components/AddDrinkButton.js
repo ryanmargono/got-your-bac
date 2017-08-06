@@ -6,7 +6,6 @@ import React from 'react'
 const AddDrinkButton = (props) => {
 
 	const onButtonClick = () => {
-		console.log('firing')
 		props.addDrink()
 	}
 

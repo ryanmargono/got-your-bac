@@ -7,7 +7,7 @@ const addUser = (userObj) => ({
 
 export const addUserThunk=(userObj)=>dispatch=>dispatch(addUser(userObj))
 
-const userReducer = (user={name:'no Name'}, action)=>{
+const userReducer = (user={}, action)=>{
 	switch(action.type){
 		case ADD_USER:
 			return user=action.userObj
