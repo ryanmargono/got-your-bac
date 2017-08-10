@@ -5,7 +5,7 @@ const AppHeader = ({button}) => {
 	return (
 		<Header
 			leftComponent={button}
-			centerComponent={{ text: 'Hangover Hero', style: { color: 'black' } }}
+			centerComponent={{ text: 'Got Your BACk', style: { color: 'black' } }}
 			rightComponent={{icon:'menu', color: 'white'}}
 		/>
 	)

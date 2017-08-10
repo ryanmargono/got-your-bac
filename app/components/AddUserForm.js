@@ -5,7 +5,6 @@ import { View, ScrollView, Text } from 'react-native'
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
 import { Grid, Col, Row, Divider } from 'react-native-elements';
 
-
 class AddUserForm extends React.Component {
 
 	constructor(props) {
@@ -27,7 +26,7 @@ class AddUserForm extends React.Component {
 			emergencyContact: this.state.emergencyContact
 		}
 		this.props.addUser(userObj)
-		console.log('************************', this.props.user)
+		console.log(this.props.user)
 	}
 
 	render() {

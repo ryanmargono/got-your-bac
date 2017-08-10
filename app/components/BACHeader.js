@@ -1,8 +1,10 @@
 import React from 'react'
 import { View } from 'react-native'
-import { Text } from 'react-native-elements'
+import { Text, Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { Constants, Location, Permissions } from 'expo';
+
+import Communications from 'react-native-communications'
 
 class BACHeader extends React.Component {
 	state = {
@@ -25,6 +27,7 @@ class BACHeader extends React.Component {
 		this.setState({ location });
 	};
 
+
 	render() {
 		const user = this.props.user;
 		const drinks = this.props.drinks;
@@ -35,15 +38,25 @@ class BACHeader extends React.Component {
 			else return 0.55
 		}
 		const BAC = (alc / (weight * getGender())) * 100
-
+		
 		let text = 'Waiting..';
 		if (this.state.errorMessage) {
 			text = this.state.errorMessage;
 		} else if (this.state.location) {
-			text = this.state.location.coords.latitude +','+ this.state.location.coords.longitude;
+			text = this.state.location.coords.latitude + ',' + this.state.location.coords.longitude;
 		}
 
-		console.log(this.state)
+		const emergencyContact = user.emergencyContact
+		const name = user.name + "'s"
+		const emergencyMessage = 'You are ' + name + " emergency contact. " + name + " BAC is " + BAC +". " + name + " location is " + text
+
+		const getBAC = (BAC) => {
+			if (BAC <= 0.25) return BAC
+			else {
+				Communications.text(emergencyContact, emergencyMessage)
+				return BAC
+			}
+		}
 
 		return (
 			< View style={
@@ -53,8 +66,7 @@ class BACHeader extends React.Component {
 					alignItems: 'center',
 				}
 			}>
-				<Text h4> Blood Alchohol Concentration: {BAC}%</Text>
-				{this.state.location && <Text> Location:{text}</Text> }
+				<Text h4> Blood Alchohol Concentration: {getBAC(BAC)}%</Text>
 			</View >
 		)
 	}
